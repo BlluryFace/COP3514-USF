@@ -1,7 +1,7 @@
 #include <stdio.h>
 // The main function is where the program actually start
 
-int pay() { // Code go into this set of curly brackets to run
+int main() { // Code go into this set of curly brackets to run
     // \n is the new line character
     printf("Hello, World!\n");
     return 0;

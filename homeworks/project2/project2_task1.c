@@ -1,26 +1,16 @@
-// name: Huy Bui
+// Name: Huy Bui
 // Description: the program show the number of oscillating grades
-
 #include <stdio.h>
-#include <string.h>
-int main() {
-    int grades[100];
-    int numGrades;
-    int count = 0;
+
+/// Counting the number of new low and high grades in the array from left to right
+/// \param grades: array of grades
+/// \param numGrades: number of grades in the array
+/// \return
+int oscGrade(int const grades[], int numGrades) {
+    int i = 1;
     int abnormal = 0;
-    // Store user's input in numGrades
-    printf("Enter the number of grades: ");
-    scanf("%d", &numGrades);
-    // Add new grades from input into each index of an array.
-    // Loop until the last character is a new line character
-    // or the count reached numGrades
-    printf("Enter the grades: ");
-    do {
-        scanf("%d", &grades[count++]);
-    } while (getchar() != "\n" && count < numGrades);
-    // Counting abnormal grades by counting the number of new low and high grades
-    // in the array from left to right
-    for (int i = 1, hiGrade = grades[0], loGrade = grades[0]; i < count; i++) {
+    int hiGrade = grades[0], loGrade = grades[0];
+    for (; i < numGrades; i++) {
         if (grades[i] > hiGrade) {
             hiGrade = grades[i];
             abnormal++;
@@ -29,7 +19,26 @@ int main() {
             abnormal++;
         } else continue;
     }
+    return abnormal;
+}
+
+int main() {
+    int grades[100];
+    int numGrades;
+    int index = 0;
+
+    // Store user's input in numGrades
+    printf("Enter the number of grades: ");
+    scanf("%d", &numGrades);
+
+    printf("Enter the grades: ");
+    // Added grades into the array until the last character is a new line character or the count reached numGrades
+    do {
+        scanf("%d", &grades[index++]);
+    } while (getchar() != '\n' || index < numGrades);
+
+    int abnormalities = oscGrade(grades, numGrades);
     // Print the number of oscillating grades
-    printf("%d", abnormal);
+    printf("%d\n", abnormalities);
     return 0;
 }

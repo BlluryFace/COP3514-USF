@@ -23,7 +23,7 @@ int oscGrade(int const grades[], int numGrades) {
 }
 
 int main() {
-    int grades[100];
+    int grades[10000];
     int numGrades;
     int index = 0;
 

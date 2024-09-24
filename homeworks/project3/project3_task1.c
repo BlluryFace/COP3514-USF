@@ -39,15 +39,19 @@ int main() {
 
     int sequence[size];
     int index = 0;
+
     printf("Enter numbers: ");
+    // Get numbers from the input into the array
     do {
         scanf("%d", &sequence[index++]);
     } while (getchar() != '\n' || index < size);
-
+    // Replace square number in the array with its square root.
+    // If found a number that is higher than the size of the array -> Output: no
+    // If no number in the array is higher than the size of the array -> Output: yes
     for (int i = 0; i < size; i++) {
-        int existSquareNumIndex = binarySearch(square, sequence[i], 29);
+        int existSquareNumIndex = binarySearch(square, sequence[i], 29); // Find the index of the square number in the array
         if (existSquareNumIndex != -1) {
-            sequence[i] = squareRoot[existSquareNumIndex];
+            sequence[i] = squareRoot[existSquareNumIndex]; // Replace the square number
         };
         printf("%d\n", sequence[i]);
         if (sequence[i] >= size) {

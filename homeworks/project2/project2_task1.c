@@ -17,7 +17,13 @@ int oscGrade(int const grades[], int numGrades) {
         } else if (grades[i] < loGrade) {
             loGrade = grades[i];
             abnormal++;
-        } else continue;
+        } else continue;int compute(int low, int high){
+
+if (low == high) return 0;
+
+else return 1 + compute(low+1, high);
+
+}
     }
     return abnormal;
 }

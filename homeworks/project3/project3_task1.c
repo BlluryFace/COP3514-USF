@@ -21,18 +21,12 @@ int binarySearch(int arr[], int x, int high) {
 };
 
 int main() {
-    int square[30] = {4, 9, 16, 25, 36, 49,
-                      64, 81, 100, 121, 144,
-                      169, 196, 225, 256, 289,
-                      324, 361, 400, 441, 484,
-                      529, 576, 625, 676, 729,
-                      784, 841, 900, 961};
-    int squareRoot[30] = {2,3,4,5,6,7,
-                          8,9,10,11,12,
-                          13,14,15,16,17,
-                          18,19,20,21,22,
-                          23,24,25,26,27,
-                          28,29,30,31};
+    int square[11] = {4, 9, 16, 25, 36, 49,
+                      64, 81, 100, 121, 144};
+
+    int squareRoot[11] = {2,3,4,5,6,7,
+                          8,9,10,11,12};
+
     int size;
     printf("Enter the size of the sequence: ");
     scanf("%d", &size);
@@ -49,11 +43,10 @@ int main() {
     // If found a number that is higher than the size of the array -> Output: no
     // If no number in the array is higher than the size of the array -> Output: yes
     for (int i = 0; i < size; i++) {
-        int existSquareNumIndex = binarySearch(square, sequence[i], 29); // Find the index of the square number in the array
+        int existSquareNumIndex = binarySearch(square, sequence[i], 10); // Find the index of the square number in the array
         if (existSquareNumIndex != -1) {
             sequence[i] = squareRoot[existSquareNumIndex]; // Replace the square number
-        };
-        printf("%d\n", sequence[i]);
+        }
         if (sequence[i] >= size) {
             printf("Output: no\n");
             return -1;

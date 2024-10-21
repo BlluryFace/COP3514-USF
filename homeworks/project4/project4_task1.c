@@ -1,3 +1,6 @@
+// Name: Huy Bui
+// Description: Board game for Marjorie and Jonh
+
 #include <stdio.h>
 /// Calculate the score of each person to see who win the round.
 /// A turn of the game consists of either picking the first or the last number in the array
@@ -17,28 +20,26 @@ void roundResult(int *board, int n) {
     // The turn then switched to the other person
     for (; pointer1 <= pointer2;) {
         if (player == 'M') {
-            {
-                int headVal = *pointer1;
-                int tailVal = *pointer2;
-                if (headVal < tailVal) {
-                    Marijorie += tailVal;
-                    pointer2--;
-                } else {
-                    Marijorie += headVal;
-                    pointer1++;
-                }
+            int headVal = *pointer1;
+            int tailVal = *pointer2;
+            if (headVal < tailVal) {
+                Marijorie += tailVal;
+                pointer2--;
+            } else {
+                Marijorie += headVal;
+                pointer1++;
             }
             player = 'J';
-        } else if (player = 'J') {
-                int headVal = *pointer1;
-                int tailVal = *pointer2;
-                if (headVal < tailVal) {
-                    Jonh += tailVal;
-                    pointer2--;
-                } else {
-                    Jonh += headVal;
-                    pointer1++;
-                }
+        } else if (player == 'J') {
+            int headVal = *pointer1;
+            int tailVal = *pointer2;
+            if (headVal < tailVal) {
+                Jonh += tailVal;
+                pointer2--;
+            } else {
+                Jonh += headVal;
+                pointer1++;
+            }
             player = 'M';
         }
     }

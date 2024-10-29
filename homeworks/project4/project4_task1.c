@@ -6,7 +6,7 @@
 /// A turn of the game consists of either picking the first or the last number in the array
 /// The winner is the player with the highest sum for the picked numbers
 /// Both players are using the same strategy, picking the largest number available remaining in the array
-/// \param board: array of numbers with the pointer pointing to the first variable
+/// \param board: array of integers with the pointer pointing to the first variable
 /// \param n: number of elements in the board
 void roundResult(int *board, int n, char player) {
     int *pointer1, *pointer2;

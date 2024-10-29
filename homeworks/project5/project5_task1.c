@@ -1,3 +1,6 @@
+// Name: Huy Bui
+// Description: Split the a two-word sentence into two words
+
 #include <stdio.h>
 /// Reading user's input through the terminal
 /// \param str: the character array where the user want to store the input

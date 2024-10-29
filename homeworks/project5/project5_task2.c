@@ -2,9 +2,11 @@
 // Description: calculate score through input from command line
 
 #include <stdio.h>
+/// Totaling the ASCII value of each character in the array
+/// \param word: array of characters that user want to calculate the score from
+/// \return the score of the array
 int calculateScore(char *word) {
     int score = 0;
-    // Calculate score using pointer arithmetic
     for (; *word != '\0'; word++){
         score += *word;
     }
@@ -12,12 +14,16 @@ int calculateScore(char *word) {
 }
 
 int main(int argc, char *argv[]) {
+    // Check if argument is valid
     if (argc != 3) {
         printf("Invalid number of arguments\n");
         return 0;
     }
+    // Calculate the score of the first and second argument
     int score1 = calculateScore(argv[1]);
     int score2 = calculateScore(argv[2]);
+
+    // Print out who wins, who lose
     if (score1 > score2) {
         printf("Play again!\n");
     } else if (score1 < score2) {

@@ -1,12 +1,10 @@
 #include <stdio.h>
 
 void multiVec(int v1[], int v2[], int v3[], int n){
-    for (int *p = &v1[0], *q = &v2[0], i = 0;
-    *p < &v1[n], *q < &v2[n], i < n;
-    *p++, *q++, i++){
-        int v1Val = *p;
-        int v2Val = *q;
-        v3[i] = v1Val * v2Val;
+    for (int *ptr1 = &v1[0], *ptr2 = &v2[0], i = 0;
+         *ptr1 < &v1[n], *ptr2 < &v2[n], i < n;
+    *ptr1++, *ptr2++, i++){
+        v3[i] = *ptr1 * *ptr2;
     }
 }
 

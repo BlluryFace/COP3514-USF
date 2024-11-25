@@ -1,3 +1,6 @@
+// Name: Huy Bui
+// Deascription: store and print details about students in a COP 2540 course
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -89,21 +92,8 @@ int main() {
 //////////////////////////
 // function definitions //
 //////////////////////////
-void reverseLinkedList(struct student **list){
-    struct student *prev = NULL;
-    struct student *curr = *list;
-    struct student *next = NULL;
 
-    // Traverse the list and reverse the links
-    while (curr != NULL) {
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-    }
 
-    *list = prev;
-}
 void help() {
     printf("List of operation codes:\n");
     printf("\t'h' for help;\n");
@@ -145,6 +135,32 @@ void read(char *name, char *netid, char *cop2510_grade, double *gpa, int *attemp
 // your solution will be considered incorrect.         //
 /////////////////////////////////////////////////////////
 
+/// Reverse a linked list
+/// \param list linked list that needs to be reversed
+void reverseLinkedList(struct student **list){
+    struct student *prev = NULL;
+    struct student *curr = *list;
+    struct student *next = NULL;
+
+    // Traverse the list and reverse the links
+    while (curr != NULL) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    *list = prev;
+}
+
+/// Add a student details into a linked list
+/// \param registration: the linked list that student's detail will be stored into
+/// \param name: student's name
+/// \param netid: student's netid
+/// \param cop2510_grade: student's grade
+/// \param gpa: student's gpa
+/// \param attempts: student's number of time that they have retaken the course
+/// \return the input linked list
 struct student * add_student(struct student *registration, char *name, char *netid,
                              char cop2510_grade, double gpa, int attempts) {
 
@@ -166,7 +182,9 @@ struct student * add_student(struct student *registration, char *name, char *net
 
     return registration;
 }
-
+/// Removing a student from linked list in order
+/// \param registration: the linked list that will be modified
+/// \return the input linked list
 struct student * pop_student(struct student *registration) {
     // add code
     if (registration == NULL) {
@@ -189,7 +207,8 @@ struct student * pop_student(struct student *registration) {
 
     return registration;
 }
-
+/// Print the details of all students in the linked list
+/// \param registration: the linked list that will be printed
 void list_students(struct student *registration) {
     // add code
     if (registration == NULL) {
@@ -209,6 +228,9 @@ void list_students(struct student *registration) {
 
     reverseLinkedList(&registration);
 }
+/// Print details of student's that satisfy a minimum gpa
+/// \param registration: the linked list that will be printed
+/// \param gpa: the minimum gpa
 void list_gpa_min(struct student *registration, double gpa) {
     if (registration == NULL) {
         return;
@@ -229,7 +251,9 @@ void list_gpa_min(struct student *registration, double gpa) {
     printf("|----------------------|----------------------|---------|-----|----------|\n");
     reverseLinkedList(&registration);
 }
-
+/// Print details of student's that satisfy a minimum letter grade
+/// \param registration: the linked list that will be printed
+/// \param cop2510_grade: the minimum letter grade
 void list_cop2510_min(struct student *registration, int cop2510_grade) {
     if (registration == NULL) {
         return;
@@ -250,7 +274,9 @@ void list_cop2510_min(struct student *registration, int cop2510_grade) {
     printf("|----------------------|----------------------|---------|-----|----------|\n");
     reverseLinkedList(&registration);
 }
-
+/// Clear all entry in the linked list
+/// \param registration: the linked list that will be cleared
+/// \return the input linked list
 struct student * clear_queue(struct student *registration) {
     while (registration != NULL) {
         struct student *curr = registration->next;

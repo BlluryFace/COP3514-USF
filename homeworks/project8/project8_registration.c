@@ -235,20 +235,31 @@ void list_gpa_min(struct student *registration, double gpa) {
     if (registration == NULL) {
         return;
     }
+    int exist = 0;
     reverseLinkedList(&registration);
     struct student *curr = registration;
-    printf("|----------------------|----------------------|---------|-----|----------|\n");
-    printf("| Name                 | NetID                | COP2510 | GPA | Attempts |\n");
     while (curr != NULL) {
-        // output format
-        if (curr->gpa >= gpa){
-            printf("|----------------------|----------------------|---------|-----|----------|\n");
-            printf("| %-20s | %-20s |       %c | %1.1f | %8d |\n", curr->name, curr->netid, curr->cop2510_grade,
-                   curr->gpa, curr->attempts);
+        if (curr->gpa >= gpa) {
+            exist = 1;
+            break;
         }
         curr = curr->next;
     }
-    printf("|----------------------|----------------------|---------|-----|----------|\n");
+    curr = registration;
+    if (exist) {
+        printf("|----------------------|----------------------|---------|-----|----------|\n");
+        printf("| Name                 | NetID               | COP2510 | GPA | Attempts |\n");
+        while (curr != NULL) {
+            // output format
+            if (curr->gpa >= gpa) {
+                printf("|----------------------|----------------------|---------|-----|----------|\n");
+                printf("| %-20s | %-20s |       %c | %1.1f | %8d |\n", curr->name, curr->netid, curr->cop2510_grade,
+                       curr->gpa, curr->attempts);
+            }
+            curr = curr->next;
+        }
+        printf("|----------------------|----------------------|---------|-----|----------|\n");
+    }
     reverseLinkedList(&registration);
 }
 /// Print details of student's that satisfy a minimum letter grade
@@ -258,20 +269,31 @@ void list_cop2510_min(struct student *registration, int cop2510_grade) {
     if (registration == NULL) {
         return;
     }
+    int exist = 0;
     reverseLinkedList(&registration);
     struct student *curr = registration;
-    printf("|----------------------|----------------------|---------|-----|----------|\n");
-    printf("| Name                 | NetID                | COP2510 | GPA | Attempts |\n");
     while (curr != NULL) {
-        // output format
-        if (curr->cop2510_grade <= cop2510_grade){
-            printf("|----------------------|----------------------|---------|-----|----------|\n");
-            printf("| %-20s | %-20s |       %c | %1.1f | %8d |\n", curr->name, curr->netid, curr->cop2510_grade,
-                   curr->gpa, curr->attempts);
+        if (curr->cop2510_grade <= cop2510_grade) {
+            exist = 1;
+            break;
         }
         curr = curr->next;
     }
-    printf("|----------------------|----------------------|---------|-----|----------|\n");
+    curr = registration;
+    if (exist) {
+        printf("|----------------------|----------------------|---------|-----|----------|\n");
+        printf("| Name                 | NetID               | COP2510 | GPA | Attempts |\n");
+        while (curr != NULL) {
+            // output format
+            if (curr->cop2510_grade <= cop2510_grade) {
+                printf("|----------------------|----------------------|---------|-----|----------|\n");
+                printf("| %-20s | %-20s |       %c | %1.1f | %8d |\n", curr->name, curr->netid, curr->cop2510_grade,
+                       curr->gpa, curr->attempts);
+            }
+            curr = curr->next;
+        }
+        printf("|----------------------|----------------------|---------|-----|----------|\n");
+    }
     reverseLinkedList(&registration);
 }
 /// Clear all entry in the linked list

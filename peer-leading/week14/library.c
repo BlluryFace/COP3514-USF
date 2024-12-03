@@ -1,14 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "library.h"
 
-// Define a structure for the linked list node
-// This is structure for a book information
-struct Node {
-    int isbn;
-    char name[50];
-    struct Node* next;
-};
 
 // Helper function to create a new node
 struct Node *createNode(int isbn, char *title) {
@@ -21,7 +15,7 @@ struct Node *createNode(int isbn, char *title) {
     newNode->isbn = isbn;
     strcpy(newNode->name, title);
     newNode->next = NULL;
-    
+
     return newNode;
 }
 
@@ -39,14 +33,3 @@ struct Node *insertInOrder(struct Node *front, int isbn, char *title){
 }
 
 
-int main() {
-    struct Node* head = NULL;
-
-    // Insert node into the linked list (reverse alphabetical order)
-
-    // Print the entire list 
-
-    // Search and delete a node 
-
-    return 0;
-}

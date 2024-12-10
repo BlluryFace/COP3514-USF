@@ -94,54 +94,33 @@ void url(char *url) {
 
 
 int main() {
-//    char ch = 'c';
-#define N 10
-//    int a[N] = {1,2,3,4,5,6,7,8,9};
-//    int *p;
-//    //for (p = a + N - 1; p >= a; p--)
-//    //    printf("%d ", *p);
-//    char s1[100] = "Program", s2[100] =  "Design";
-//    int hr, min, sec;
-//    split_time_traditional(2465, &hr, &min, &sec);
-//    printf ("%d:%d:%d\n", hr, min, sec);
-//    split_time_modulo(2465, &hr, &min, &sec);
-//    printf ("%d:%d:%d\n", hr, min, sec);
-//    char *str = "The world is yours";
-//    replace(str, 'o', 'w');
-//    printf("%s", str);
-//    int n = 8;
-//    int input[8] = {0,0,1,0,1,1,0,1};
-//    int output[8] = {0};
-//    char file[100] = "byebye.e";
-//    char extension[3] = "";
-//    get_extension(file, extension);
-//    printf("%s", extension);
-//    if (is_all_uppercase("HEWWO") == 1) printf("Yes\n");
-//    if (is_all_uppercase("HEwWO") == 0) printf("No\n");
-//    char str[1000] = "Go ahead, make my day.";
-//    shift(str, 3);
-//    printf("%s", str);
-    char str1[1000] = "https://mylifesuck.com/resources/howtokillyourself.docx";
-    url(str1);
-    printf("%s", str1);
-//    edgeThem(input, output, n);
-//    for (int i = 0; i < n; i++) {
-//        printf("%d",output[i]);
+//    FILE *pFile = fopen("test.txt", "r");
+//    char course_id[100];
+//    int student;
+//    char status[100];
+//    while(!feof(pFile) && !ferror(pFile)){
+//        fscanf(pFile, "%s%d%s", course_id, &student, status);
+//        printf("%s\t%d\t%s\n", course_id,student,status);
 //    }
-//    printf("\n");
-//    edgeMe(input, output, n);
-//    for (int i = 0; i < n; i++) {
-//        printf("%d",output[i]);
-//    }
-//    char null = ''
-//    if (strcmp (s1, s2) > 0) {
-//        strcat (s1, s2);
-//    } else {
-//        strcat (s2, s1);
-//    }
-//    printf("%s\n", s2);
-//    printf("%d\n", strcmp("he", "hi"));
-//    printf("%d\n", strcmp("hello", "Hi"));
-//    printf("%d\n", strcmp("he", "hello"));
-//    printf("%d\n", strcmp("8h", "hello"));
+//    fclose(pFile);
+
+    printf("Items per line: ");
+    int num;
+    scanf("%d", &num);
+    FILE *inFile = fopen("test.txt", "r");
+    FILE *outFile = fopen("result.txt", "w");
+    char buffer[100];
+    while(!feof(inFile) && !ferror(inFile)) {
+        for (int i = 0; i < num - 1; i++) {
+            if (fscanf(inFile, "%[^,],", buffer) == 1) {
+                fprintf(outFile,"%s\t", buffer);
+            }
+        }
+        if (fscanf(inFile, "%[^\n]\n", buffer) == 1) {
+            fprintf(outFile,"%s\n", buffer);
+        }
+    }
+    fclose(inFile);
+    fclose(outFile);
+    return 0;
 }

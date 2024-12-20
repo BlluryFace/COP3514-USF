@@ -15,7 +15,7 @@ struct Dog{
 int find_dog(char *dog_name, char *owner_name, struct Dog list[], int nd);
 void insert(struct Dog list[], int *nd);
 void search(struct Dog list[], int nd);
-void calculate_cost(struct Dog list[], int nd);
+void calculate_cost(struct Dog dogs[], int num_dogs);
 void print(struct Dog list[], int nd);
 int read_line(char *str, int n);
 
@@ -51,6 +51,10 @@ int main() {
     }
 
     return 0;
+}
+void calculate_cost(struct Dog dogs[], int num_dogs){
+    search(dogs, num_dogs);
+    find_dog()
 }
 
 int find_dog(char *dog_name, char *owner_name, struct Dog list[], int nd) {
@@ -103,10 +107,6 @@ void search(struct Dog list[], int nd) {
     }
 }
 
-void calculate_cost(struct Dog list[], int nd) {
-   //add code here
-
-}
 
 void print(struct Dog list[], int nd) {
     int i;

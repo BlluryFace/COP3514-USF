@@ -122,5 +122,6 @@ int main() {
     }
     fclose(inFile);
     fclose(outFile);
+    
     return 0;
 }
